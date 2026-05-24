@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | МПП «ТРЕЙД»</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/contact_style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo-icon.png" alt="Логотип" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand">МПП «ТРЕЙД»</span>
+                    <span class="slogan">НАДІЙНИЙ ПАРТНЕР У ЛОГІСТИЦІ</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html">ГОЛОВНА</a>
+                <a href="services.html">ПОСЛУГИ</a>
+                <a href="prices.html">ПРАЙС</a>
+                <a href="about.html">ПРО КОМПАНІЮ</a>
+                <a href="contacts.html" class="active">КОНТАКТИ</a>
+            </nav>
+
+
+            <div class="header-right">
+                <a href="tel:+380671234567" class="phone"><i class="fas fa-phone"></i> +38 (067) 123 45 67</a>
+                
+                <div class="lang-switcher">
+                    <i class="fas fa-globe"></i>
+                    <select id="langSelect" onchange="changeLanguage(this.value)">
+                        <option value="uk">UA</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+
+                <button class="btn-login" id="loginHeaderBtn" onclick="openLogin()">
+                    <i class="fas fa-user"></i> ВХІД
+                </button>
+                <button class="btn-logout" id="logoutBtn" onclick="handleLogout()" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i> ВИХІД
+                </button>
+            </div>
+
+
+        </div>
+    </header>
+
+    <section class="contacts-page">
+        <div class="container">
+            <h1 data-lang-key="contacts_title">Зв'яжіться з нами</h1>
+            
+            <p class="contacts-subtitle" data-lang-key="contacts_subtitle">Логістичний центр МПП «ТРЕЙД» — регулярні вантажні рейси Україна ↔ Італія</p>
+
+            <div class="contacts-grid">
+                <div class="contacts-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3 data-lang-key="addr_title">Юридична адреса</h3>
+                            <p data-lang-key="addr_text">Львівська обл., м. Новий Розділ, проспект Шевченка, 25</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-route"></i>
+                        <div>
+                            <h3 data-lang-key="route_title">Основний напрямок рейсів</h3>
+                            <p data-lang-key="route_text">Італія (Мілан, Турин, Рим, Верона, Болонья, Неаполь)</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3 data-lang-key="phones_title">Телефони диспетчерської</h3>
+                            <p>+38 (067) 123 45 67</p>
+                            <p>+38 (050) 987 65 43</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3 data-lang-key="email_title">Електронна пошта для заявок</h3>
+                            <p>info@mpp-trade.com.ua</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form action="#" class="contact-form" id="feedbackForm">
+                        <h3 style="margin-top: 0; color: #002147; margin-bottom: 15px;" data-lang-key="form_title">Розрахунок індивідуального рейсу в Італію</h3>
+                        
+                        <div class="input-group">
+                            <input type="text" data-lang-key="form_name" placeholder="Ваше ім'я або Назва компанії" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" data-lang-key="form_email" placeholder="Ваш Email для отримання кошторису" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea data-lang-key="form_message" placeholder="Опишіть вантаж (вага, об'єм, місто доставки в Італії...)" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-orange" data-lang-key="form_btn">НАДІСЛАТИ ЗАЯВКУ В ДИСПЕТЧЕРСЬКУ</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-placeholder">
+            <p><i class="fas fa-map-marked-alt"></i> Офіс та автопарк МПП «ТРЕЙД» (м. Новий Розділ)</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.277028471131!2d24.1351187!3d49.4414603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a45c363d59e35%3A0x8797f7faea54bf6d!2z0L_RgNC-0YHQvy4g0KNo0LXQstGH0LXQvdC60LAsIDI1LCDQndC-0LLQuNC5INCg0L7Qt9C00ZbQuywg0CbRjNCy0ZbQstGB0YzQutCwINC-0LHQuy4sIDgxMTYw!5e0!3m2!1suk!2sua!4v1716000000000!5m2!1suk!2sua" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+            <h2>Авторизація</h2>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Ваш Email" required>
+                <input type="password" id="password" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit-modal">УВІЙТИ В АКАУНТ</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 МПП «ТРЕЙД». Дипломний проєкт студента Олександр Томченко.</p>
+        </div>
+    </footer>
+    <script src="js/lang.js"></script>
+    <script src="js/auth.js"></script>
+    
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Дякуємо! Ваша заявка на італійський напрямок успішно надіслана. Диспетчер МПП «ТРЕЙД» зв’яжеться з вами найближчим часом.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

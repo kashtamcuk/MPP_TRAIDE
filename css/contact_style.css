@@ -1,0 +1,498 @@
+/* ==========================================================================
+   1. ГЛОБАЛЬНІ СТИЛІ ТА ЗМІННІ (Фірмовий стиль МПП «ТРЕЙД»)
+   ========================================================================== */
+:root {
+    --primary-color: #002147;   /* Глибокий логістичний синій */
+    --accent-color: #ff5722;    /* Динамічний помаранчевий */
+    --accent-hover: #e04819;    /* Темніший помаранчевий для ховерів */
+    --bg-light: #f8fafc;        /* Світло-сірий фон */
+    --text-dark: #1e293b;       /* Контрастний темний текст */
+    --text-muted: #64748b;      /* М'який сірий текст */
+    --white: #ffffff;
+    --card-shadow: 0 10px 30px rgba(0, 33, 71, 0.05);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   2. ШАПКА САЙТУ (Ефект скла, повна адаптивність іконок та лого)
+   ========================================================================== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.slogan {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 14px;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.phone {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 15px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.phone i {
+    color: var(--accent-color);
+}
+
+.phone:hover {
+    color: var(--accent-color);
+}
+
+.btn-login, .btn-logout {
+    border: none;
+    padding: 10px 22px;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-login:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.btn-logout {
+    background-color: #ef4444;
+    color: var(--white);
+}
+
+/* ==========================================================================
+   3. СЕКЦІЯ КОНТАКТІВ (Верхній заголовок та інформаційна сітка)
+   ========================================================================== */
+.contacts-page {
+    padding: 60px 0 90px 0;
+    background-color: #f8fafc; /* Легкий фон під картки */
+}
+
+.contacts-page h1 {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.contacts-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    font-weight: 600;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Картки інформації лівої колонки */
+.contacts-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 15px 35px rgba(0, 33, 71, 0.08);
+}
+
+.info-card i {
+    font-size: 26px;
+    color: var(--accent-color);
+    background: rgba(255, 87, 34, 0.1);
+    width: 60px;
+    height: 60px;
+    min-width: 60px; /* Захист від стискання флексом */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-card h3 {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   4. ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ (Преміальний вигляд)
+   ========================================================================== */
+.contact-form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 33, 71, 0.06);
+    border: 1px solid #e2e8f0;
+}
+
+.contact-form h3 {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    background-color: #f8fafc;
+    transition: var(--transition);
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.1);
+}
+
+/* Кнопка форми відправки */
+.contact-form .btn-orange {
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    font-weight: 800;
+    transition: var(--transition);
+}
+
+.contact-form .btn-orange:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.3);
+}
+
+/* ==========================================================================
+   5. СЕКЦІЯ ІНТЕРЕНЕТ-КАРТИ (Інтеграція Google Maps)
+   ========================================================================== */
+.map-section {
+    background-color: var(--white);
+    border-top: 1px solid #e2e8f0;
+}
+
+.map-placeholder {
+    position: relative;
+    width: 100%;
+}
+
+/* Напис над картою */
+.map-placeholder p {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 10px 25px;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    pointer-events: none; /* Карта клікається крізь напис */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map-placeholder iframe {
+    display: block;
+    width: 100%;
+    height: 450px; /* Трохи збільшено для солідності */
+    filter: grayscale(10%) contrast(105%); /* Легкий стильний фільтр */
+}
+
+/* ==========================================================================
+   6. МОДАЛЬНЕ ВІКНО ТА ФУТЕР
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 33, 71, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 12% auto;
+    padding: 45px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.modal-icon {
+    font-size: 45px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.modal h2 { font-size: 26px; margin-bottom: 5px; }
+.modal form input {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+.btn-submit-modal {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 30px 0;
+    font-size: 14px;
+    font-weight: 600;
+    border-top: 5px solid var(--accent-color);
+    text-align: center;
+}
+
+/* ==========================================================================
+   7. АДАПТИВНІСТЬ (Повна оптимізація під планшети та телефони)
+   ========================================================================== */
+
+/* Середні екрани (Планшети до 992px) */
+@media (max-width: 992px) {
+    .contacts-grid {
+        grid-template-columns: 1fr; /* Перебудова сітки в одну колонку */
+        gap: 40px;
+    }
+    
+    .contacts-page h1 { font-size: 36px; }
+    .contact-form-container { padding: 30px; }
+}
+
+/* Мобільні телефони (до 768px) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    nav { 
+        gap: 15px; 
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contacts-page { padding: 40px 0 60px 0; }
+    .contacts-subtitle { margin-bottom: 35px; font-size: 14px; }
+    
+    .info-card {
+        padding: 20px;
+        gap: 15px;
+    }
+    .info-card i {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        font-size: 20px;
+    }
+    
+    .map-placeholder iframe {
+        height: 320px; /* Зменшуємо карту на мобільних, щоб зручніше було скролити сторінку вниз */
+    }
+}
+
+/* Зовсім малі смартфони (до 480px) */
+@media (max-width: 480px) {
+    .contacts-page h1 { font-size: 28px; }
+    .contact-form-container { padding: 25px 15px; }
+    .contact-form h3 { font-size: 17px; }
+    .map-placeholder p { width: 90%; text-align: center; justify-content: center; font-size: 11px; }
+    .modal-content { padding: 35px 20px; }
+}

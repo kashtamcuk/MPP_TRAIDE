@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="home_page_title">МПП «ТРЕЙД» | Вантажні перевезення</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo-icon.png" alt="Логотип" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand">МПП «ТРЕЙД»</span>
+                    <span class="slogan" data-lang-key="slogan">НАДІЙНИЙ ПАРТНЕР У ЛОГІСТИЦІ</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="index.html" class="active" data-lang-key="nav_home">ГОЛОВНА</a>
+                <a href="services.html" data-lang-key="nav_services">ПОСЛУГИ</a>
+                <a href="prices.html" data-lang-key="nav_price">ПРАЙС</a>
+                <a href="about.html" data-lang-key="nav_about">ПРО КОМПАНІЮ</a>
+                <a href="contacts.html" data-lang-key="nav_contacts">КОНТАКТИ</a>
+            </nav>
+
+            <div class="header-right">
+                <a href="tel:+380671234567" class="phone"><i class="fas fa-phone"></i> +38 (067) 123 45 67</a>
+
+                <div class="lang-switcher">
+                    <i class="fas fa-globe"></i>
+                    <select id="langSelect" onchange="changeLanguage(this.value)">
+                        <option value="uk">UA</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                
+                <button class="btn-login" id="loginHeaderBtn" onclick="openLogin()" data-lang-key="btn_login">
+                    <i class="fas fa-user"></i> ВХІД
+                </button>
+                <button class="btn-logout" id="logoutBtn" onclick="handleLogout()" style="display: none;" data-lang-key="btn_logout">
+                    <i class="fas fa-sign-out-alt"></i> ВИХІД
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="images/truck.png" alt="Вантажівка" class="hero-bg-img">
+        <div class="hero-content">
+            <span class="label">МПП «ТРЕЙД»</span>
+            <h1 data-lang-key="hero_title">ВАНТАЖНІ ПЕРЕВЕЗЕННЯ<br>ПО УКРАЇНІ ТА ІТАЛІЇ</h1>
+            <p data-lang-key="hero_desc">Швидко, надійно, вчасно. Доставка збірних та повних вантажів автомобільним транспортом. Пріоритетний напрямок — Італія.</p>
+            
+            <div class="hero-features">
+                <span><i class="fas fa-check-circle"></i> <span data-lang-key="feat_reliability">НАДІЙНІСТЬ</span></span>
+                <span><i class="fas fa-clock"></i> <span data-lang-key="feat_speed">ШВИДКІСТЬ</span></span>
+                <span><i class="fas fa-map-marker-alt"></i> <span data-lang-key="feat_geography">ГЕОГРАФІЯ</span></span>
+            </div>
+
+            <div class="hero-btns">
+                <a href="services.html" class="btn-orange"><span data-lang-key="btn_services">НАШІ ПОСЛУГИ</span> <i class="fas fa-chevron-right"></i></a>
+                <a href="#calc" class="btn-outline"><span data-lang-key="btn_calc">РОЗРАХУВАТИ ВАРТІСТЬ</span> <i class="fas fa-calculator"></i></a>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fas fa-truck"></i>
+                <div><strong data-lang-key="stat_park_num">8 одиниць</strong><br><span data-lang-key="stat_park_desc">СУЧАСНИЙ АВТОПАРК</span></div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-history"></i>
+                <div><strong data-lang-key="stat_exp_num">28 РОКІВ</strong><br><span data-lang-key="stat_exp_desc">БЕЗДОГАННОГО ДОСВІДУ</span></div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-headset"></i>
+                <div><strong>24/7</strong><br><span data-lang-key="stat_support">ПІДТРИМКА КЛІЄНТІВ</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="services-header">
+            <h2 data-lang-key="services_title">Наші послуги</h2>
+            <p data-lang-key="services_subtitle">Ми пропонуємо повний спектр логістичних послуг для бізнесу.</p>
+            <a href="services.html" class="btn-blue-link"><span data-lang-key="btn_all_services">ВСІ ПОСЛУГИ</span> <i class="fas fa-chevron-right"></i></a>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-truck-moving"></i>
+                <h3 data-lang-key="ser1_title">Міжнародні перевезення</h3>
+                <p data-lang-key="ser1_desc">Доставка вантажів по Україні та Італії</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-warehouse"></i>
+                <h3 data-lang-key="ser2_title">Збірні вантажі</h3>
+                <p data-lang-key="ser2_desc">Економічне перевезення невеликих вантажів (LTL)</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-stopwatch"></i>
+                <h3 data-lang-key="ser3_title">Експрес-доставка</h3>
+                <p data-lang-key="ser3_desc">Термінова доставка від дверей до дверей</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-clipboard-list"></i>
+                <h3 data-lang-key="ser4_title">Логістичні рішення</h3>
+                <p data-lang-key="ser4_desc">Індивідуальні рішення під ваш бізнес та ліцензійні ADR вантажі</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-section" id="calc">
+        <div class="container">
+            <div class="calc-header">
+                <h2 data-lang-key="calc_title">Онлайн-калькулятор перевезення</h2>
+                <p data-lang-key="calc_subtitle">Розрахуйте орієнтовну вартість доставки за лічені секунди та випишіть рахунок</p>
+            </div>
+            
+            <form id="logistics-calc" onsubmit="event.preventDefault();">
+                <div class="calc-grid">
+                    <div class="calc-inputs">
+                        <div class="input-field" style="margin-bottom: 15px;">
+                            <label for="route-type" style="display:block; font-weight:bold; margin-bottom:5px;" data-lang-key="calc_route_label">Напрямок рейсу</label>
+                            <select id="route-type" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;">
+                                <option value="ukraine" data-lang-key="calc_route_ukr">Внутрішні перевезення (по Україні)</option>
+                                <option value="europe" data-lang-key="calc_route_eu">Міжнародні рейси (Україна — Італія)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field" style="margin-bottom: 15px;">
+                            <label for="eco-standard" style="display:block; font-weight:bold; margin-bottom:5px;" data-lang-key="calc_eco_label">Екологічний клас автомобіля</label>
+                            <select id="eco-standard" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;">
+                                <option value="euro6" data-lang-key="calc_eco_6">Euro 6 (Магістральні тягачі DAF / Volvo)</option>
+                                <option value="euro5" data-lang-key="calc_eco_5">Euro 5 (Вантажні автомобілі Renault)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field" style="margin-bottom: 15px;">
+                            <label for="distance" data-lang-key="calc_dist_label">Відстань (км)</label>
+                            <input type="number" id="distance" data-lang-key="calc_dist_ph" placeholder="Наприклад: 500" min="1" required>
+                        </div>
+
+                        <div class="input-field" style="margin-bottom: 20px;">
+                            <label for="weight" data-lang-key="calc_weight_label">Вага вантажу (тонни)</label>
+                            <input type="number" id="weight" data-lang-key="calc_weight_ph" placeholder="Наприклад: 5" min="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="calc-result" style="display: flex; flex-direction: column; justify-content: center;">
+                        <h3 data-lang-key="calc_res_title">Попередня вартість:</h3>
+                        <div class="price-display" style="margin: 15px 0;"><span id="total-price">0</span> <span data-lang-key="currency">грн</span></div>
+                        
+                        <p id="discount-info" style="color: #28a745; font-weight: bold; display: none; margin-bottom: 15px; font-size: 14px;">
+                            <i class="fas fa-percentage"></i> <span data-lang-key="calc_discount">Активовано знижку клієнта 10%!</span>
+                        </p>
+                        
+                        <button type="button" onclick="generateInvoice()" class="btn-orange" style="width: 100%; padding: 12px; font-size: 15px; font-weight: bold; cursor: pointer; border-radius: 4px; margin-bottom: 10px;">
+                            <i class="fas fa-file-invoice"></i> <span data-lang-key="btn_invoice">СФОРМУВАТИ РАХУНОК (PDF)</span>
+                        </button>
+                        
+                        <p class="calc-note" style="margin-top: 5px;" data-lang-key="calc_note">*Розрахунок базується на тарифах підприємства в системі CMS</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="map-section" style="padding: 60px 0; background-color: #ffffff;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <div class="calc-header" style="text-align: center; margin-bottom: 30px;">
+                <h2 style="color: #002147; font-size: 28px; font-weight: 700; margin-bottom: 10px;">Географія маршрутів перевезень</h2>
+                <p style="color: #666; font-size: 16px;">Інтерактивна карта рейсів МПП «ТРЕЙД» між АТП в Україні та основними вузлами ЄС</p>
+            </div>
+            <div id="map" style="width: 100%; height: 450px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); z-index: 1;"></div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+            <h2 data-lang-key="modal_title">Авторизація</h2>
+            <p data-lang-key="modal_promo">Увійдіть, щоб отримати персональну знижку</p>
+            <form id="loginForm">
+                <input type="email" id="email" data-lang-key="modal_email" placeholder="Ваш Email" required>
+                <input type="password" id="password" data-lang-key="modal_pass" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit-modal" data-lang-key="modal_btn">УВІЙТИ В АКАУНТ</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <p data-lang-key="footer_rights">&copy; 2026 МПП «ТРЕЙД». Всі права захищені.</p>
+            <p data-lang-key="footer_text">Дипломний проєкт студента Олександр Томченко</p>
+            <a href="admin.html" id="adminLink" style="color: #a0aab5; text-decoration: none; font-size: 13px; font-weight: bold; border: 1px dashed #a0aab5; padding: 4px 10px; border-radius: 4px; transition: 0.2s;">
+                <i class="fas fa-cogs"></i> Панель керування
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/lang.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/calc.js"></script>
+    <script src="js/map.js"></script>
+    </body>
+</html>

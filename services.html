@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="services_page_title">Послуги | МПП «ТРЕЙД»</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/service_style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo-icon.png" alt="Логотип" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand">МПП «ТРЕЙД»</span>
+                    <span class="slogan" data-lang-key="slogan">НАДІЙНИЙ ПАРТНЕР У ЛОГІСТИЦІ</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html" data-lang-key="nav_home">ГОЛОВНА</a>
+                <a href="services.html" class="active" data-lang-key="nav_services">ПОСЛУГИ</a>
+                <a href="prices.html" data-lang-key="nav_price">ПРАЙС</a>
+                <a href="about.html" data-lang-key="nav_about">ПРО КОМПАНІЮ</a>
+                <a href="contacts.html" data-lang-key="nav_contacts">КОНТАКТИ</a>
+            </nav>
+            <div class="header-right">
+                <a href="tel:+380671234567" class="phone"><i class="fas fa-phone"></i> +38 (067) 123 45 67</a>
+
+                <div class="lang-switcher">
+                    <i class="fas fa-globe"></i>
+                    <select id="langSelect" onchange="changeLanguage(this.value)">
+                        <option value="uk">UA</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+                
+                <button class="btn-login" id="loginHeaderBtn" onclick="openLogin()" data-lang-key="btn_login">
+                    <i class="fas fa-user"></i> ВХІД
+                </button>
+                <button class="btn-logout" id="logoutBtn" onclick="handleLogout()" style="display: none;" data-lang-key="btn_logout">
+                    <i class="fas fa-sign-out-alt"></i> ВИХІД
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="services-hero">
+        <div class="container">
+            <h1 data-lang-key="s_hero_title">Наші логістичні рішення</h1>
+            <p data-lang-key="s_hero_desc">Професійне забезпечення регулярного вантажного сполучення між Україною та Італією</p>
+        </div>
+    </section>
+
+    <section class="services-list">
+        <div class="container">
+            
+            <div class="service-detail-card">
+                <div class="service-icon-box"><i class="fas fa-truck-moving"></i></div>
+                <div class="service-info">
+                    <h2 data-lang-key="s_card1_title">Внутрішні перевезення (Подача під завантаження)</h2>
+                    <p data-lang-key="s_card1_desc">Забезпечуємо швидкий підхід та подачу магістральних тентованих напівпричепів об'ємом 92 м³ у будь-який регіон України для подальшого експорту або внутрішнього розподілу вантажів.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card1_li1">Чітке дотримання тайм-слотів завантаження</span></li>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card1_li2">Постійний GPS-моніторинг локації автомобіля</span></li>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card1_li3">Обов'язкове страхування відповідальності перевізника (CMR страхування)</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail-card reverse">
+                <div class="service-info">
+                    <h2 data-lang-key="s_card2_title">Регулярні рейси до Італії (FTL)</h2>
+                    <p data-lang-key="s_card2_desc">Спеціалізовані прямі перевезення повних вантажів (експорт/імпорт) власними тягачами екологічних класів Euro 5 та Euro 6. Ключові хаби доставки: Україна, Італія.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card2_li1">Досвідчені водії з багаторічним досвідом на італійських серпантинах та автострадах</span></li>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card2_li2">Повний супровід та контроль митних документів (TIR Carnet, CMR, T1, EX-1)</span></li>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card2_li3">Оптимальні логістичні коридори безпосередньо до отримувача в Італії</span></li>
+                    </ul>
+                </div>
+                <div class="service-icon-box"><i class="fas fa-globe-europe"></i></div>
+            </div>
+
+            <div class="service-detail-card">
+                <div class="service-icon-box"><i class="fas fa-boxes"></i></div>
+                <div class="service-info">
+                    <h2 data-lang-key="s_card3_title">Збірні вантажі з Італії та України (LTL)</h2>
+                    <p data-lang-key="s_card3_desc">Вигідне рішення для перевезення невеликих партій товарів або палетних вантажів. Формуємо збірні лінії, що дозволяє клієнтам суттєво економити бюджет, сплачуючи виключно за фактично зайняте місце.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card3_li1">Консолідація та надійне пакування вантажів</span></li>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card3_li2">Стабільний графік виїздів за затвердженим італійським маршрутом</span></li>
+                        <li><i class="fas fa-check"></i> <span data-lang-key="s_card3_li3">Зменшення витрат на логістику малого та середнього бізнесу до 40%</span></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+            <h2 data-lang-key="modal_title">Авторизація</h2>
+            <form id="loginForm">
+                <input type="email" id="email" data-lang-key="modal_email" placeholder="Ваш Email" required>
+                <input type="password" id="password" data-lang-key="modal_pass" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit-modal" data-lang-key="modal_btn">УВІЙТИ В АКАУНТ</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <p data-lang-key="footer_rights">&copy; 2026 МПП «ТРЕЙД». Всі права захищені.</p>
+            <p data-lang-key="footer_text">Дипломний проєкт студента Олександр Томченко</p>
+        </div>
+    </footer>
+    <script src="js/lang.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,753 @@
+/* ==========================================================================
+   1. ГЛОБАЛЬНІ СТИЛІ ТА ЗМІННІ (Фірмовий стиль МПП «ТРЕЙД»)
+   ========================================================================== */
+:root {
+    --primary-color: #002147;   /* Глибокий логістичний синій */
+    --accent-color: #ff5722;    /* Динамічний помаранчевий */
+    --accent-hover: #e04819;    /* Темніший помаранчевий для ховерів */
+    --bg-light: #f8fafc;        /* Світло-сірий фон */
+    --text-dark: #1e293b;       /* Контрастний темний текст */
+    --text-muted: #64748b;      /* М'який сірий текст */
+    --white: #ffffff;
+    --card-shadow: 0 10px 30px rgba(0, 33, 71, 0.05);
+    --hover-shadow: 0 20px 40px rgba(255, 87, 34, 0.15);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   2. ШАПКА САЙТУ (Ефект скла, повна адаптивність іконок та лого)
+   ========================================================================== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.slogan {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 14px;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.phone {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 15px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.phone i {
+    color: var(--accent-color);
+}
+
+.phone:hover {
+    color: var(--accent-color);
+}
+
+.btn-login, .btn-logout {
+    border: none;
+    padding: 10px 22px;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-login:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+}
+
+.btn-logout {
+    background-color: #ef4444;
+    color: var(--white);
+}
+
+/* ==========================================================================
+   3. HERO СЕКЦІЯ (Об'ємний фон, картинка СТОЇТЬ КОРЕКТНО і не вилазить)
+   ========================================================================== */
+/* Tworzymy warstwę przyciemniającą nad zdjęciem (efekt gradientu z boku) */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient, który przechodzi z gęstego, ciemnoniebieskiego koloru po lewej stronie,
+       aby tekst był czytelny, do przezroczystości po prawej stronie, aby pokazać ciężarówkę. */
+    background-image: linear-gradient(to right,
+        rgba(0, 33, 71, 1) 0%,     /* Ciemny, pełny kolor sekcji po lewej stronie */
+        rgba(0, 33, 71, 0.9) 30%,  /* Wciąż gęsty kolor nad tekstem */
+        rgba(0, 33, 71, 0.4) 60%,  /* Zaczynamy mocniej odsłaniać zdjęcie */
+        rgba(0, 33, 71, 0) 100%);  /* Zdjęcie jest całkowicie odsłonięte po prawej stronie */
+    z-index: 1; /* Musi być większe niż z-index zdjęcia (które ma pewnie 0 lub -1) */
+}
+
+
+.hero-bg-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;          /* Займає рівно половину блоку справа */
+    height: 100%;        /* Розтягується на всю висоту синього боксу */
+    object-fit: cover;   /* Картинка заповнює весь простір без деформацій */
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes truckFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    padding: 0 25px;
+    color: var(--white);
+}
+
+.hero-content .label {
+    background: rgba(255, 87, 34, 0.2);
+    color: var(--accent-color);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 87, 34, 0.3);
+}
+
+.hero-content h1 {
+    color: var(--white);
+    font-size: 46px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 35px;
+}
+
+.hero-features {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.hero-features span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.hero-features i {
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-orange {
+    background-color: var(--accent-color);
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 8px 25px rgba(255, 87, 34, 0.3);
+}
+
+.btn-outline {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 800;
+    font-size: 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--primary-color);
+    border-color: var(--white);
+}
+
+/* Стрічка статистики нижче */
+.stats-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+}
+
+.stats-bar .stat-item {
+    padding: 25px 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--white);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-bar .stat-item:last-child {
+    border-right: none;
+}
+
+.stats-bar .stat-item i {
+    font-size: 28px;
+    color: var(--accent-color);
+}
+
+.stats-bar .stat-item strong {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.stats-bar .stat-item div {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================================================
+   4. СЕКЦІЯ СЛУЖБ / ПОСЛУГ (Grid-презентація карток)
+   ========================================================================== */
+.services-section {
+    padding: 250px 25px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.services-header h2 {
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.services-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-blue-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 4px;
+}
+
+.btn-blue-link:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition);
+    border: 1px solid #f1f5f9;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 33, 71, 0.08);
+}
+
+.service-card i {
+    font-size: 36px;
+    color: var(--accent-color);
+    background: rgba(255, 87, 34, 0.08);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   5. СЕКЦІЯ СУЧАСНОГО КАЛЬКУЛЯТОРА (Ідеальне очищення інлайнів)
+   ========================================================================== */
+.calculator-section {
+    background-color: #f1f5f9; /* М'який контрастний сіро-блакитний колір */
+    padding: 90px 0;
+}
+
+.calc-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.calc-header h2 {
+    font-size: 36px;
+}
+
+.calc-header p {
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+#logistics-calc {
+    background: var(--white);
+    padding: 45px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 33, 71, 0.3);
+    border: 1px solid rgba(255, 87, 34, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+}
+
+.calc-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-field label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.input-field select, .input-field input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: var(--transition);
+    background-color: var(--white);
+}
+
+.input-field select:focus, .input-field input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.1);
+}
+
+/* Права панель виведення ціни */
+.calc-result {
+    background: linear-gradient(135deg, #002147 0%, #001530 100%);
+    padding: 35px;
+    border-radius: 16px;
+    border: 2px solid var(--accent-color);
+    text-align: center;
+}
+
+.calc-result h3 {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-display {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--white) !important;
+    margin: 15px 0;
+    text-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
+}
+
+
+.calc-note {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7) !important;
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   6. МОДАЛЬНЕ ВІКНО ТА ФУТЕР (iOS Glassmorphism)
+   ========================================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 33, 71, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 12% auto;
+    padding: 45px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-btn:hover { color: var(--accent-color); }
+
+.modal-icon {
+    font-size: 45px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.modal h2 { font-size: 26px; margin-bottom: 5px; }
+.modal p { color: var(--text-muted); font-size: 14px; margin-bottom: 25px; }
+
+.modal form input {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+.modal form input:focus { border-color: var(--accent-color); outline: none; }
+
+.btn-submit-modal {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit-modal:hover { background: var(--accent-color); }
+
+footer {
+    background-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 35px 0;
+    font-size: 14px;
+    font-weight: 600;
+    border-top: 5px solid var(--accent-color);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* ==========================================================================
+   7. АДАПТИВНІСТЬ ДЛЯ СЕКТОРІВ (Різні монітори, планшети та смартфони)
+   ========================================================================== */
+
+/* Планшети та малі ноутбуки (до 1024px) */
+@media (max-width: 1024px) {
+    .hero {
+        min-height: auto;
+        padding-bottom: 180px;
+    }
+    .hero-bg-img {
+        width: 45%;
+        right: -2%;
+        bottom: 15%;
+    }
+    .calc-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* Малі планшети (до 768px) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    nav {
+        gap: 15px;
+    }
+    .hero {
+        padding-bottom: 320px;
+        text-align: center;
+    }
+    .hero-content {
+        max-width: 100%;
+    }
+    .hero-bg-img {
+        width: 70%;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        bottom: 40px;
+        animation: none;
+    }
+    .hero-features {
+        justify-content: center;
+    }
+    .hero-btns {
+        justify-content: center;
+    }
+    .stats-bar {
+        flex-direction: column;
+    }
+    .stats-bar .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 15px 25px;
+        justify-content: center;
+    }
+    .services-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Мобільні телефони (до 480px) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 30px;
+    }
+    .hero-features {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .hero-btns {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .btn-orange, .btn-outline {
+        width: 100%;
+        justify-content: center;
+    }
+    #logistics-calc {
+        padding: 20px;
+    }
+    .price-display {
+        font-size: 32px;
+    }
+}

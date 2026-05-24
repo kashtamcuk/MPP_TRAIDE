@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель адміністратора | МПП «ТРЕЙД»</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+        .admin-container { max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #002147; font-size: 24px; margin-bottom: 20px; border-bottom: 2px solid #ff5722; padding-bottom: 10px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 14px; color: #555; }
+        input[type="number"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box; }
+        .btn-save { background-color: #002147; color: white; border: none; padding: 12px 20px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; width: 100%; transition: background 0.2s; }
+        .btn-save:hover { background-color: #003366; }
+        .btn-back { display: inline-block; margin-top: 15px; color: #ff5722; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .btn-back:hover { text-decoration: underline; }
+        .alert-success { background-color: #d4edda; color: #155724; padding: 12px; border-radius: 4px; margin-bottom: 20px; display: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h1>Панель керування тарифами АТП</h1>
+        
+        <div id="success-alert" class="alert-success">Тарифи успішно оновлено! Калькулятор на сайті вже використовує нові ціни.</div>
+
+        <form id="admin-tariffs-form">
+            <div class="form-group">
+                <label for="admin-ukraine">Тариф по Україні (грн / км):</label>
+                <input type="number" id="admin-ukraine" required min="1" step="0.1">
+            </div>
+
+            <div class="form-group">
+                <label for="admin-europe">Базовий тариф на ЄС / Італію (грн / км):</label>
+                <input type="number" id="admin-europe" required min="1" step="0.1">
+            </div>
+
+            <div class="form-group">
+                <label for="admin-weight">Доплата за тоннаж вантажу (грн / тонна):</label>
+                <input type="number" id="admin-weight" required min="0" step="0.1">
+            </div>
+
+            <button type="submit" class="btn-save">Зберегти нові тарифи</button>
+        </form>
+
+        <a href="index.html" class="btn-back">← Повернутися на головну сторінку</a>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

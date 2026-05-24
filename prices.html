@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="prices_page_title">Тарифи та Ціни | МПП «ТРЕЙД»</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo-icon.png" alt="Логотип" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand">МПП «ТРЕЙД»</span>
+                    <span class="slogan" data-lang-key="slogan">НАДІЙНИЙ ПАРТНЕР У ЛОГІСТИЦІ</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html" data-lang-key="nav_home">ГОЛОВНА</a>
+                <a href="services.html" data-lang-key="nav_services">ПОСЛУГИ</a>
+                <a href="prices.html" class="active" data-lang-key="nav_price">ПРАЙС</a>
+                <a href="about.html" data-lang-key="nav_about">ПРО КОМПАНІЮ</a>
+                <a href="contacts.html" data-lang-key="nav_contacts">КОНТАКТИ</a>
+            </nav>
+            <div class="header-right">
+                <a href="tel:+380671234567" class="phone"><i class="fas fa-phone"></i> +38 (067) 123 45 67</a>
+
+                <div class="lang-switcher">
+                    <i class="fas fa-globe"></i>
+                    <select id="langSelect" onchange="changeLanguage(this.value)">
+                        <option value="uk">UA</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+
+                <button class="btn-login" id="loginHeaderBtn" onclick="openLogin()" data-lang-key="btn_login"><i class="fas fa-user"></i> ВХІД</button>
+                <button class="btn-logout" id="logoutBtn" onclick="handleLogout()" style="display: none;" data-lang-key="btn_logout"><i class="fas fa-sign-out-alt"></i> ВИХІД</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="prices-section" style="padding: 60px 0;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            
+            <div class="prices-header" style="text-align: center; margin-bottom: 30px;">
+                <h1 style="color: #002147; margin-bottom: 10px;" data-lang-key="prices_main_title">Тарифи на перевезення МПП «ТРЕЙД»</h1>
+                <p style="color: #666;" data-lang-key="prices_subtitle">Актуальні ціни на логістичні послуги станом на травень 2026 року</p>
+                
+                <div class="currency-switcher" style="margin-top: 25px;">
+                    <button onclick="switchCurrency('UAH')" id="btn-uah" class="btn-orange" style="padding: 10px 25px; font-weight: bold; cursor: pointer; border-radius: 4px;" data-lang-key="btn_currency_uah">Гривня (грн)</button>
+                    <button onclick="switchCurrency('EUR')" id="btn-eur" class="btn-outline" style="padding: 10px 25px; margin-left: 10px; font-weight: bold; cursor: pointer; border-radius: 4px;" data-lang-key="btn_currency_eur">Євро (€)</button>
+                </div>
+            </div>
+
+            <div id="cms-admin-panel" style="display: none; background: #fff3cd; border: 1px solid #ffeeba; padding: 25px; border-radius: 8px; margin-bottom: 35px;">
+                <h3 style="color: #856404; margin-top: 0; display: flex; align-items: center; gap: 10px;" data-lang-key="cms_title">
+                    <i class="fas fa-tools"></i> Вбудована система керування вмістом (Custom CMS)
+                </h3>
+                <p style="color: #856404; font-size: 14px; margin-bottom: 20px;" data-lang-key="cms_desc">
+                    Ви авторизувалися як Адміністратор (Керівник фірми — Томченко О. К.). Ви можете динамічно оновити базові тарифи в базі даних (`localStorage`) безпосередньо через інтерфейс:
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #856404;" data-lang-key="cms_label_ua">Рейси по Україні (грн/км):</label>
+                        <input type="number" id="cms-tariff-ua" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #856404;" data-lang-key="cms_label_eu">Рейси до ЄС/Італії (грн/км):</label>
+                        <input type="number" id="cms-tariff-eu" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                    </div>
+                </div>
+                <button onclick="saveCmsChanges()" class="btn-orange" style="padding: 10px 20px; font-size: 14px; cursor: pointer;" data-lang-key="cms_btn_save">ЗБЕРЕГТИ ZМІНИ В CMS</button>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="price-table" style="width: 100%; border-collapse: collapse; margin-top: 20px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <thead>
+                        <tr style="background: #002147; color: white; text-align: left;">
+                            <th style="padding: 15px;" data-lang-key="th_service">Напрямок та тип послуги</th>
+                            <th style="padding: 15px;" data-lang-key="th_unit">Одиниця виміру</th>
+                            <th style="padding: 15px;"><span data-lang-key="th_cost">Вартість</span> (<span id="currency-label">UAH</span>)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px;"><i class="fas fa-truck" style="color: #ff5722; margin-right: 10px;"></i> <span data-lang-key="row_ua_title">Вантажні перевезення по Україні (Магістральні тягачі)</span></td>
+                            <td style="padding: 15px;" data-lang-key="unit_km">за 1 км</td>
+                            <td style="padding: 15px; font-weight: bold;"><span class="price-val" data-uah="25">25</span> <span class="curr-symbol">грн</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px;"><i class="fas fa-globe-europe" style="color: #ff5722; margin-right: 10px;"></i> <span data-lang-key="row_eu_title">Міжнародні рейси (Україна — Італія: Мілан, Рим, Турин)</span></td>
+                            <td style="padding: 15px;" data-lang-key="unit_km">за 1 км</td>
+                            <td style="padding: 15px; font-weight: bold;"><span class="price-val" data-uah="45">45</span> <span class="curr-symbol">грн</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px;"><i class="fas fa-box-open" style="color: #ff5722; margin-right: 10px;"></i> <span data-lang-key="row_ltl_title">Доставка збірних вантажів (LTL з консолідацією)</span></td>
+                            <td style="padding: 15px;" data-lang-key="unit_kg">за 1 кг</td>
+                            <td style="padding: 15px; font-weight: bold;"><span class="price-val" data-uah="12">12</span> <span class="curr-symbol">грн</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 15px;"><i class="fas fa-warehouse" style="color: #ff5722; margin-right: 10px;"></i> <span data-lang-key="row_wh_title">Тимчасове складське зберігання вантажів</span></td>
+                            <td style="padding: 15px;" data-lang-key="unit_day">за добу</td>
+                            <td style="padding: 15px; font-weight: bold;"><span class="price-val" data-uah="150">150</span> <span class="curr-symbol">грн</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+            <h2 data-lang-key="modal_title">Авторизація</h2>
+            <form id="loginForm">
+                <input type="email" id="email" data-lang-key="modal_email" placeholder="Ваш Email" required>
+                <input type="password" id="password" data-lang-key="modal_pass" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit-modal" data-lang-key="modal_btn">УВІЙТИ В АКАУНТ</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 20px 0; border-top: 1px solid #eee; margin-top: 50px;">
+            <p data-lang-key="footer_text">&copy; 2026 МПП «ТРЕЙД». Всі права захищені. Дипломний проєкт студента Олександер Томченко.</p>
+        </div>
+    </footer>
+    <script src="js/lang.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/prices.js"></script>
+</body>
+</html>

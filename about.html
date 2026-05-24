@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="about_page_title">Про компанію | МПП «ТРЕЙД»</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/about_stule.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo-icon.png" alt="Логотип" class="logo-img">
+                <div class="logo-text">
+                    <span class="brand">МПП «ТРЕЙД»</span>
+                    <span class="slogan" data-lang-key="slogan">НАДІЙНИЙ ПАРТНЕР У ЛОГІСТИЦІ</span>
+                </div>
+            </div>
+            <nav>
+                <a href="index.html" data-lang-key="nav_home">ГОЛОВНА</a>
+                <a href="services.html" data-lang-key="nav_services">ПОСЛУГИ</a>
+                <a href="prices.html" data-lang-key="nav_price">ПРАЙС</a>
+                <a href="about.html" class="active" data-lang-key="nav_about">ПРО КОМПАНІЮ</a>
+                <a href="contacts.html" data-lang-key="nav_contacts">КОНТАКТИ</a>
+            </nav>
+            <div class="header-right">
+                <a href="tel:+380671234567" class="phone"><i class="fas fa-phone"></i> +38 (067) 123 45 67</a>
+
+                <div class="lang-switcher">
+                    <i class="fas fa-globe"></i>
+                    <select id="langSelect" onchange="changeLanguage(this.value)">
+                        <option value="uk">UA</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+
+                <button class="btn-login" id="loginHeaderBtn" onclick="openLogin()" data-lang-key="btn_login">
+                    <i class="fas fa-user"></i> ВХІД
+                </button>
+                <button class="btn-logout" id="logoutBtn" onclick="handleLogout()" style="display: none;" data-lang-key="btn_logout">
+                    <i class="fas fa-sign-out-alt"></i> ВИХІД
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1 data-lang-key="about_hero_title">МПП «ТРЕЙД» — Експерти італійської логістики</h1>
+            <p data-lang-key="about_hero_desc">Понад 28 років надійного та стабільного виконання регулярних міжнародних рейсів</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2 data-lang-key="about_main_title">Наша історія та моно-спеціалізація</h2>
+                    <p data-lang-key="about_p1">Приватне підприємство МПП «ТРЕЙД» розпочало свій шлях у далекому 1998 році в місті Новий Розділ. Завдяки чітко обраній стратегії розвитку та високим стандартам якості, мы трансформувалися у стабільного логістичного оператора з унікальною та глибокою спеціалізацією.</p>
+                    <p data-lang-key="about_p2">Сьогодні ключова відмінність нашого підприємства — фокус виключно на магістральних вантажоперевезеннях між Україною та Італією. Ми не розпорошуємо ресурси на інші напрямки, що дозволяє нам забезпечувати бездоганний сервіс, ідеальне знання маршрутів, швидке проходження європейських митниць та найвигідніші тарифи для наших постійних партнерів.</p>
+                    
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-num" data-lang-key="stat1_num">28 років</span>
+                            <span class="stat-desc" data-lang-key="stat1_desc">Досвіду на ринку</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num" data-lang-key="stat2_num">8 одиниць</span>
+                            <span class="stat-desc" data-lang-key="stat2_desc">Сучасних євро-тягачів</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num">1500+</span>
+                            <span class="stat-desc" data-lang-key="stat3_desc">Успішних рейсів в Італію</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/truck.png" alt="Наш transport" style="width:100%; border-radius:15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #002147; margin-bottom: 40px;" data-lang-key="adv_main_title">Чому довіряють МПП «ТРЕЙД»?</h2>
+            <div class="adv-grid">
+                <div class="adv-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3 data-lang-key="adv1_title">Екологічність та Надійність</h3>
+                    <p data-lang-key="adv1_desc">Власний автопарк складається з магістральних тягачів високих стандартів Euro 5 та Euro 6, що дозволяє безперешкодно працювати в екологічних зонах Італії.</p>
+                </div>
+                <div class="adv-card">
+                    <i class="fas fa-file-signature"></i>
+                    <h3 data-lang-key="adv2_title">Офіційні ліцензії (ADR)</h3>
+                    <p data-lang-key="adv2_desc">Володіємо всіма необхідними міжнародними ліцензіями та дозволами, включаючи перевезення небезпечних вантажів класу ADR.</p>
+                </div>
+                <div class="adv-card">
+                    <i class="fas fa-map-signs"></i>
+                    <h3 data-lang-key="adv3_title">Досконалість маршрутів</h3>
+                    <p data-lang-key="adv3_desc">Регулярні рейси до провідних промислових та торговельних хабів: Україна, Італія.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="modal-icon"><i class="fas fa-user-lock"></i></div>
+            <h2 data-lang-key="modal_title">Авторизація</h2>
+            <p data-lang-key="modal_desc">Увійдіть в систему МПП «ТРЕЙД»</p>
+            <form id="loginForm">
+                <input type="email" id="email" data-lang-key="modal_email" placeholder="Ваш Email" required>
+                <input type="password" id="password" data-lang-key="modal_pass" placeholder="Пароль" required>
+                <button type="submit" class="btn-submit-modal" data-lang-key="modal_btn">УВІЙТИ В АКАУНТ</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 20px 0;">
+            <p data-lang-key="footer_text">&copy; 2026 МПП «ТРЕЙД». Дипломний проєкт студента Олександр Томченко.</p>
+        </div>
+    </footer>
+
+    <script src="js/lang.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
